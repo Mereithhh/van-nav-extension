@@ -186,7 +186,7 @@ async function handleOpenAdmin(ev) {
   if (tab) {
     chrome.tabs.update(tab.id, { active: true });
   } else {
-    chrome.tabs.create({ url: BASE_URL });
+    chrome.tabs.create({ url: BASE_URL + '/admin' });
   }
   window.close();
 }
