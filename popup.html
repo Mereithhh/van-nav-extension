@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+</head>
+
+<body>
+  <main class="container">
+    <div class="page show" id="mainPage">
+      <button id="addTool">添加工具</button>
+      <button id="openAdmin">后台管理</button>
+      <button id="openWebsite">前台页面</button>
+      <button id="openSetting">拓展设置</button>
+    </div>
+    <div class="page" id="confirmPage">
+      <!-- <p>确定添加工具吗？</p> -->
+      <div class="formBody">
+        <label for="name">名称
+          <input type="text" id="name" name="name" placeholder="请输入名称" required>
+        </label>
+        <label for="catelog">分类
+          <select id="catelog" name="catelog" placeholder="请选择分类" required>
+          </select>
+        </label>
+        <label for="url">网址
+          <input type="text" id="url" name="url" placeholder="请输入网址" required>
+        </label>
+        <label for="logo">图标
+          <input type="text" id="logo" name="logo" placeholder="请输入图标">
+        </label>
+        <label for="desc">描述
+          <input type="text" id="desc" name="desc" placeholder="请输入描述" required>
+        </label>
+      </div>
+
+      <div class="flex">
+        <button id="confirmAdd">确定</button>
+        <button id="cancelAdd">返回</button>
+      </div>
+    </div>
+    <div class="page" id="loadingPage">
+      <div class="loadingWraper">
+        <div>
+          <div class="lds-dual-ring"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page" id="settingPage">
+      <div>
+        <label for="baseUrl">baseUrl
+          <input type="text" id="baseUrl" name="baseUrl" placeholder="请输入 baseUrl" required>
+        </label>
+        <label for="token">token
+          <input type="text" id="token" name="token" placeholder="请输入 token" required>
+        </label>
+      </div>
+      <div class="flex">
+        <button id="confirmSetting">确定</button>
+        <button id="cancelSetting">返回</button>
+      </div>
+      <button id="fetchCatelog">重新获取分类</button>
+    </div>
+
+  </main>
+  <script src="action.js"></script>
+</body>
+
+</html>
