@@ -1,6 +1,6 @@
 ## VanNavExtension
 
-[VanNav](https://github.com/Mereithhh/van-nav) 的管理扩展 for chome
+[VanNav](https://github.com/Mereithhh/van-nav) 的管理扩展 for chrome
 
 <div align=center ><img  src="assets/main.png" alt="主页"/></div>
 
