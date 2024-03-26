@@ -17,6 +17,7 @@ const formUrl = document.querySelector("#url")
 const formDesc = document.querySelector("#desc")
 const formCatelog = document.querySelector("#catelog")
 const formLogo = document.querySelector("#logo")
+const formHide1 = document.querySelector("#hide1")
 const settingBaseUrl = document.querySelector("#baseUrl")
 const settingToken = document.querySelector("#token")
 openAdminElement.addEventListener("click", handleOpenAdmin)
@@ -231,7 +232,8 @@ async function fetchAddTool() {
     desc: formDesc.value,
     name: formName.value,
     url: formUrl.value,
-    logo: formLogo.value
+    logo: formLogo.value,
+    hide: formHide1.checked
   }
 
   // 校验必填项
