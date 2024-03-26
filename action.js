@@ -2,6 +2,7 @@ const addToolElement = document.querySelector("#addTool")
 const openAdminElement = document.querySelector("#openAdmin")
 const openWebSiteElement = document.querySelector("#openWebsite")
 const openSettingElement = document.querySelector("#openSetting")
+const openExtensionElement = document.querySelector("#openExtension")
 const confirmPage = document.querySelector("#confirmPage")
 const mainPage = document.querySelector("#mainPage")
 const settingPage = document.querySelector("#settingPage")
@@ -16,6 +17,7 @@ const formUrl = document.querySelector("#url")
 const formDesc = document.querySelector("#desc")
 const formCatelog = document.querySelector("#catelog")
 const formLogo = document.querySelector("#logo")
+const formHide1 = document.querySelector("#hide1")
 const settingBaseUrl = document.querySelector("#baseUrl")
 const settingToken = document.querySelector("#token")
 openAdminElement.addEventListener("click", handleOpenAdmin)
@@ -24,6 +26,7 @@ confirmBtn.addEventListener("click", handleConfirm)
 cancelBtn.addEventListener("click", handleCancel)
 addToolElement.addEventListener("click", handleAddTool)
 openSettingElement.addEventListener("click", handleOpenSetting)
+openExtensionElement.addEventListener("click", handleOpenExtension)
 settingCancelBtn.addEventListener("click", handleOpenSetting)
 settingConfirmBtn.addEventListener("click", handleSettingConfirm)
 fetchCatelogBtn.addEventListener("click", (ev) => {
@@ -41,16 +44,19 @@ let LAST_OPTION = null;
 chrome.storage.sync.get(['baseUrl', 'token', 'options', 'lastOption'], function (result) {
   if (!result.baseUrl || !result.token) {
     alert("首次使用请先在设置中设置基础 URL 和 TOKEN!")
+    return
   }
   if (!result.options) {
     // fetch
     setLoading(true, mainPage)
     fetchCateLog(undefined).then(res => {
-      if (!res.length) {
+      if (!res?.length) {
         alert("暂无分类信息，请先在后台添加分类！")
       } else {
         addCateLogInSelect();
       }
+    }).catch(res => {
+      console.log(res)
     }).finally(() => {
       setLoading(false, mainPage)
     })
@@ -226,7 +232,8 @@ async function fetchAddTool() {
     desc: formDesc.value,
     name: formName.value,
     url: formUrl.value,
-    logo: formLogo.value
+    logo: formLogo.value,
+    hide: formHide1.checked
   }
 
   // 校验必填项
@@ -275,4 +282,8 @@ async function getData(url = '') {
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
   });
   return response.json(); // parses JSON response into native JavaScript objects
+}
+
+function handleOpenExtension(){
+  chrome.tabs.create({url: chrome.runtime.getURL('popup.html')});
 }
