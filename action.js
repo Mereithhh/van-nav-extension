@@ -2,7 +2,7 @@ const addToolElement = document.querySelector("#addTool")
 const openAdminElement = document.querySelector("#openAdmin")
 const openWebSiteElement = document.querySelector("#openWebsite")
 const openSettingElement = document.querySelector("#openSetting")
-const openHtmlElement = document.querySelector("#openHtml")
+const openExtensionElement = document.querySelector("#openExtension")
 const confirmPage = document.querySelector("#confirmPage")
 const mainPage = document.querySelector("#mainPage")
 const settingPage = document.querySelector("#settingPage")
@@ -26,7 +26,7 @@ confirmBtn.addEventListener("click", handleConfirm)
 cancelBtn.addEventListener("click", handleCancel)
 addToolElement.addEventListener("click", handleAddTool)
 openSettingElement.addEventListener("click", handleOpenSetting)
-openHtmlElement.addEventListener("click", handleOpenHeml)
+openExtensionElement.addEventListener("click", handleOpenExtension)
 settingCancelBtn.addEventListener("click", handleOpenSetting)
 settingConfirmBtn.addEventListener("click", handleSettingConfirm)
 fetchCatelogBtn.addEventListener("click", (ev) => {
@@ -284,6 +284,6 @@ async function getData(url = '') {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function handleOpenHeml(){
+function handleOpenExtension(){
   chrome.tabs.create({url: chrome.runtime.getURL('popup.html')});
 }

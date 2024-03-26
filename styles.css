@@ -1,6 +1,6 @@
 body {
   min-width: 400px;
-  min-height: 300px;
+  /*min-height: 300px;*/
 }
 
 button {
@@ -9,23 +9,37 @@ button {
   width: 100%;
 }
 
+#openExtension {
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
 .page {
   display: none;
+  padding-top: 12px;
 }
+
 .show {
   display: block;
 }
+
 .flex {
   display: flex;
 }
+
 .flex > button {
   margin: 5px !important;
 }
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -37,6 +51,7 @@ button {
   border-color: #000 transparent #000 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -45,6 +60,7 @@ button {
     transform: rotate(360deg);
   }
 }
+
 .loadingWraper {
   /* display: flex;
   justify-content: center;
