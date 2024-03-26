@@ -2,6 +2,7 @@ const addToolElement = document.querySelector("#addTool")
 const openAdminElement = document.querySelector("#openAdmin")
 const openWebSiteElement = document.querySelector("#openWebsite")
 const openSettingElement = document.querySelector("#openSetting")
+const openHtmlElement = document.querySelector("#openHtml")
 const confirmPage = document.querySelector("#confirmPage")
 const mainPage = document.querySelector("#mainPage")
 const settingPage = document.querySelector("#settingPage")
@@ -24,6 +25,7 @@ confirmBtn.addEventListener("click", handleConfirm)
 cancelBtn.addEventListener("click", handleCancel)
 addToolElement.addEventListener("click", handleAddTool)
 openSettingElement.addEventListener("click", handleOpenSetting)
+openHtmlElement.addEventListener("click", handleOpenHeml)
 settingCancelBtn.addEventListener("click", handleOpenSetting)
 settingConfirmBtn.addEventListener("click", handleSettingConfirm)
 fetchCatelogBtn.addEventListener("click", (ev) => {
@@ -278,4 +280,8 @@ async function getData(url = '') {
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
   });
   return response.json(); // parses JSON response into native JavaScript objects
+}
+
+function handleOpenHeml(){
+  chrome.tabs.create({url: chrome.runtime.getURL('popup.html')});
 }

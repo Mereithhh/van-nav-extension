@@ -19,5 +19,11 @@
     "32": "/images/logo.png",
     "48": "/images/logo.png",
     "128": "/images/logo.png"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
