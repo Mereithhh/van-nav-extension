@@ -3,6 +3,12 @@ body {
   min-height: 300px;
 }
 
+button {
+  display: block;
+  margin: 6px 0 !important;
+  width: 100%;
+}
+
 .page {
   display: none;
 }
@@ -13,8 +19,7 @@ body {
   display: flex;
 }
 .flex > button {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 5px !important;
 }
 .lds-dual-ring {
   display: inline-block;
