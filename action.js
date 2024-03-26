@@ -41,16 +41,19 @@ let LAST_OPTION = null;
 chrome.storage.sync.get(['baseUrl', 'token', 'options', 'lastOption'], function (result) {
   if (!result.baseUrl || !result.token) {
     alert("首次使用请先在设置中设置基础 URL 和 TOKEN!")
+    return
   }
   if (!result.options) {
     // fetch
     setLoading(true, mainPage)
     fetchCateLog(undefined).then(res => {
-      if (!res.length) {
+      if (!res?.length) {
         alert("暂无分类信息，请先在后台添加分类！")
       } else {
         addCateLogInSelect();
       }
+    }).catch(res => {
+      console.log(res)
     }).finally(() => {
       setLoading(false, mainPage)
     })
