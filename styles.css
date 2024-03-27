@@ -70,3 +70,8 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* 只有loadingpage高度自适应有问题，单独设置一下 */
+#loadingPage{
+  min-height: 100px;
+}
