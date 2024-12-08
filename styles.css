@@ -1,26 +1,45 @@
 body {
   min-width: 400px;
-  min-height: 300px;
+  /*min-height: 300px;*/
+}
+
+button {
+  display: block;
+  margin: 6px 0 !important;
+  width: 100%;
+}
+
+#openExtension {
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 5px;
 }
 
 .page {
   display: none;
+  padding-top: 12px;
 }
+
 .show {
   display: block;
 }
+
 .flex {
   display: flex;
 }
+
 .flex > button {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 5px !important;
 }
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
@@ -32,6 +51,7 @@ body {
   border-color: #000 transparent #000 transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -40,6 +60,7 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .loadingWraper {
   /* display: flex;
   justify-content: center;
@@ -48,4 +69,9 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+/* 只有loadingpage高度自适应有问题，单独设置一下 */
+#loadingPage{
+  min-height: 100px;
 }
